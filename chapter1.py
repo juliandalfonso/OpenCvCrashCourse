@@ -2,24 +2,14 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('./Resources/lena.png')
-kernel = np.ones((5,5),np.uint8)
+img = cv2.imread('./Resources/lambo.png')
 
-#convierte a escala de grises
-imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#imprime el tamaño de la imagen
+#(alto, ancho, #de canales(3=BGR))
+print(img.shape)
+imgResize = cv2.resize(img,(300, 200))
 
-#convierte a desenfocado
-imgBlur = cv2.GaussianBlur(imgGray, (7,7),0)
+cv2.imshow('image', img)
+cv2.imshow('image resized', imgResize)
 
-#muestra las bordes de la imagen
-imgCanny = cv2.Canny(img, 100,100)
-imgDilatation = cv2.dilate(imgCanny,kernel,iterations=1)
-
-imgEroded = cv2.erode(imgDilatation, kernel, iterations=1)
-
-cv2.imshow('Gray image', imgGray)
-cv2.imshow('image Blur', imgBlur)
-cv2.imshow('image Canny', imgCanny)
-cv2.imshow('image Dilation', imgDilatation)
-cv2.imshow('image Erode', imgEroded)
 cv2.waitKey(0)
