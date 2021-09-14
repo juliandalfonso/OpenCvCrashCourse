@@ -15,8 +15,11 @@ imgBlur = cv2.GaussianBlur(imgGray, (7,7),0)
 imgCanny = cv2.Canny(img, 100,100)
 imgDilatation = cv2.dilate(imgCanny,kernel,iterations=1)
 
+imgEroded = cv2.erode(imgDilatation, kernel, iterations=1)
+
 cv2.imshow('Gray image', imgGray)
 cv2.imshow('image Blur', imgBlur)
 cv2.imshow('image Canny', imgCanny)
 cv2.imshow('image Dilation', imgDilatation)
+cv2.imshow('image Erode', imgEroded)
 cv2.waitKey(0)
