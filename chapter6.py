@@ -10,4 +10,5 @@ cv2.imshow("Horizontal", imgHor)
 cv2.imshow("Vertical", imgVer)
 
 
+
 cv2.waitKey(0)
