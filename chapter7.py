@@ -17,14 +17,16 @@ cv2.createTrackbar("sat max", "Trackbars",255,255,empty)
 cv2.createTrackbar("val min", "Trackbars",0,255,empty)
 cv2.createTrackbar("val max", "Trackbars",255,255,empty)
 
+while True:
+
+    img =cv2.imread(path)
 
 
-img =cv2.imread(path)
+    imgHSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
+    h_min = cv2.getTrackbarPos("Hue min", "Trackbars")
+    print(h_min)
 
-imgHSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-
-
-cv2.imshow("Original", img)
-cv2.imshow("HSV", imgHSV)
-cv2.waitKey(0)
+    cv2.imshow("Original", img)
+    cv2.imshow("HSV", imgHSV)
+    cv2.waitKey(1)
